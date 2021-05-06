@@ -1,4 +1,5 @@
 
+
 ## SWU MACHINE LEARNING
 
 ![image](https://user-images.githubusercontent.com/58849278/117250140-bb36ae00-ae7d-11eb-9586-cce643406bbd.png)
@@ -91,6 +92,49 @@ Weak Model 을 순차적으로 적용해나가는 과정에서 잘못 분류된 
 	 ![image](https://user-images.githubusercontent.com/58849278/117254232-20d96900-ae83-11eb-92f9-419e927ace9f.png)
 
  
+## Random Forest
 
+여러 의사 결정 트리를 생성한 후 다수결 또는 평균에 따라 출력 변수를 예측하는 알고리즘 
+(의사결정트리 + Bagging) 
 
+![image](https://user-images.githubusercontent.com/58849278/117255239-5e8ac180-ae84-11eb-808a-0d4d48a84c0b.png)
+
+**Feature**
+:one: 랜덤포레스트는 부트 스트랩을 이용하여 학습 집하에 다양한 샘플을 추출하며 입력 변수 중 일부의 변수만 사용한다.
+:two:  데이터 샘플링 및 변수 선택을 통해 의사 결정 트리의 다양성을 확보한다. 
+:three: 변수의 중요성에 순위를 매기고 결측치에 대해 강건하다. 
+:four: 예측의 변동성이 줄어들어 과적합을 방지한다. 
+:five: 결측치의 비율이 높아져 높은 정확도를 나타낸다. 
+:six: 데이터의 수가 많아지면 의사 결정 트리에 비해 속도가 크게 떨어지고 결과에 대한 해석이 어려울 수 있다. 
+
+## Scikit Learn 
+**Iris Flower Data Set**
+
+![image](https://user-images.githubusercontent.com/58849278/117256277-7151c600-ae85-11eb-9547-baf9c9416105.png)
+
+**Advanced Learning** - MNIST 
+
+![image](https://user-images.githubusercontent.com/58849278/117257076-6f3c3700-ae86-11eb-997c-93abedee875b.png)
+
+**결과**
+![image](https://user-images.githubusercontent.com/58849278/117257212-9c88e500-ae86-11eb-9542-034e1b988b50.png)
+
+## SVM (Support Vector Machine) 
+
+![image](https://user-images.githubusercontent.com/58849278/117257960-6ac44e00-ae87-11eb-8922-b60945480b2b.png)
+
+(1) SVC : Support Vector Classifier 범주형 변수
+(2) SVR : Support Vector Regression 연속형 변수
+
+SVM은 적당한 error을 허용하되, margin은 최대화 되도록 
+
+![image](https://user-images.githubusercontent.com/58849278/117258377-df978800-ae87-11eb-8e66-d94ec1f2a6b0.png)
+
+## RMS Prop Optimizer
+
+**rms prop 수식** 
+![image](https://user-images.githubusercontent.com/58849278/117258764-461ca600-ae88-11eb-9cb0-51349c45877a.png)
+
+    optimize= tf.train.RMSPropOptimizer(learning_rate=0.01,decay=0.9,momentum=0.0,epsilon=1e-10).minimize(cost) 
+  
 
