@@ -1,146 +1,161 @@
 
 
-## SWU MACHINE LEARNING
-
-![image](https://user-images.githubusercontent.com/58849278/117250140-bb36ae00-ae7d-11eb-9586-cce643406bbd.png)
-
-## 머신러닝 알고리즘 종류
-
- - classification
- - estimation
- - prediction
- - affinity grouping
- - association rules
- - clustering
- - description
- - profiling
 
 
-## 독립변수 X와 종속변수 Y 형태에 따른 머신러닝 기법 
 
-![image](https://user-images.githubusercontent.com/58849278/117250551-5def2c80-ae7e-11eb-9559-9f327dcdc7d9.png)
+## SWU AI Deep Learning 
 
-## Decision Tree
+<img width="800" height = "400" src="https://user-images.githubusercontent.com/58849278/117119604-46a43680-adcd-11eb-91cc-d489f17dbef1.png">
 
-**Feature 선별할 때 사용하는 규칙 기반의 데이터 분류와 예측** 
 
-![image](https://user-images.githubusercontent.com/58849278/117250709-95f66f80-ae7e-11eb-8021-a445ef443e4a.png)
+|Language| Library |
+|--|--|
+| Python 2.7.16 | Tensorflow |
 
-## 회귀모형
+## GOAL 
 
- - 회귀모형의 에러 제곱합 평가 (sum of squares)
-	 **SST = SSR + SSE** 
-	 - SST = the total sum of squares 
-	 - SSR = the regression sum of squares 
-	 - SSE = the sum of squares of errors 
-	 
- - 회귀모형의 적합도 평가 (R-squared)
-		 - R-squared = Explained variance / Total variance 
-		 - 변수의 개수가 추가되면 R^2 값은 높아짐
-		 - 변수의 개수를 패널티로 보정된 R^2 사용 
+:heavy_check_mark: 딥러닝의 지도학습, 비지도학습, 강화학습 이론 이해
 
-![image](https://user-images.githubusercontent.com/58849278/117251497-b7a42680-ae7f-11eb-88ff-bf730327730f.png)		
+:heavy_check_mark: MNIST DATA 활용
+
+:heavy_check_mark: Linear Regression 실습
+
+:heavy_check_mark: Gradient Descent Optimizer 사용 
+
+:heavy_check_mark: Logisitic Regression 실습 
+
+:heavy_check_mark: Adam Optimizer 사용 
+
+:heavy_check_mark: 과적합 방지를 위한 DropOut 정리 및 실습, 비용함수는 cross-entropy 활용 
+
+:heavy_check_mark: RMS Prop Optimzer과 Adagrad 함수의 비교 및 실습 
+
+:heavy_check_mark: CNN Adam Optimizer 실습 
+
+:heavy_check_mark: CNN의 최적화 방법으로 adam optimizer과 rmsprop optimzer 실습 후 정확도 비교 
+
+:heavy_check_mark: 학습 모델에 적합한 비용함수를 사용하여 학습률 확인 
+
+
+## 선형회귀모델
+
+![image](https://user-images.githubusercontent.com/58849278/117121470-98e65700-adcf-11eb-9066-eb808690ba87.png)
+
+1. 무작위의 데이터를 생성하고 .csv 파일로 만들어 준다. 
+2. 4개의 심층 신경망 모델을 생성한다. 
+3. 가중치와 편향의 분포는 정규분포로 초기화한다.  
+4. Gradient Descent Optimization 을 최적화 방법으로 사용한다.
+5. 최적화 함수로 손실을 최소화한다. 
+
+        cost=tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=model, labels=Y))
+	    optimizer = tf.train.GradientDescentOptimizer(0.2).minimize(cost)
+
+## 실행 결과
+
+1. MNIST Data Sets 을 사용하여 데이터를 학습하고 이를 바탕으로 사람의 키가 주어졌을 때, 근사치 값에 가까운 사람의 몸무게를 예측해 볼 수 있다. 
+
+2. 경사하강법으로 손실을 최소화 하는 최적화 과정을 거치게 된다. 
+
+3. 선형 회귀 모델은 모든 데이터로부터 나타나는 오차의 평균을 최소화하는 최적의 기울기와 절편을 찾는 역할을 한다. 
+
+5. 반복된 학습을 통해 정확도는 1.0에 가까워지는 것을 볼 수 있다. 
+
+## 심층신경망 모델
+
+<img width="800" src="https://user-images.githubusercontent.com/58849278/117121258-515fcb00-adcf-11eb-8ec3-3a2083ce5166.png">
+
+ 1. 털과 날개에 따라 포유류, 조류, 기타로 분류하는 데이터를 무작위로 생성한다 (.csv) 
+ 2. placeholder 에 실측 값을 넣어준다. 
+ 3. 심층신경망의 입력층, 3개의 은닉층 (10,20,30개의 노드로 구성), 출력층으로 되어있는 모델을 생성한다. 
+
+	 <img src="https://user-images.githubusercontent.com/58849278/116961945-a02e3780-acdf-11eb-8143-3441b8e6cee6.png" width = 500>
+
+4. 최적화 방법은 Gradient Descent Optimizer을 사용한다. 
+
+	<img src="https://user-images.githubusercontent.com/58849278/116962044-edaaa480-acdf-11eb-93b8-4caee98831eb.png" width = 500>
+
+## 결과 분석 
+
+:heavy_check_mark: 은닉층이 3개로 이루어진 심층 신경망은 가중치와 편향을 추가해주어야 하며 이에 따른 layer도 맞춰주어야 오류가 없이 실행된다. 
+
+:heavy_check_mark: 입력층과 출력층은 특징과 분류 개수로 맞춰야 하며 연결 부분은 꼭 맞닿은 층의 뉴런 수와 맞춰야 한다. 
+
+:heavy_check_mark: 데이터가 증가할 수록 학습 시간이 증가하고 초기의 데이터 생성 부분에서 개별적인 학습이 요구된다. 
+
+:heavy_check_mark: 은닉층을 추가할 때마다 계산의 부담은 지수적으로 증가한다. 
+
+:heavy_check_mark: 2개의 은닉층으로 불연속 함수의 표현이 가능하다. 
+
+:heavy_check_mark: 입력 패턴에 대한 훈련 집합을 신경망에 제시하면 신경망은 출력 패턴과 목표 출력간의 오차가 줄어들도록 가중치를 조정해 나간다. 
+
+## MNIST Batch Normalization 
+
+****구현과정**** 
 	
 
-## LinearRegression
+ - MNIST 데이터 불러오기 
+ - 심층신경망의 입력층 , 3개의 은닉층 (256, 256, 256), 출력층으로 되어 있는 모델 생성 
+ - 최적화 방법은 Gradient Descent Optimization 
+ - 과적합 방지를 위해 Dropout 사용 
+ - 과적합 방지를 위해 Batch Normalization 사용 
 
-1. 50명의 사람의 신체 데이터가 들어있는 csv 파일 준비 
+**Input Data** 
+	
 
-2. head() 메소드 사용하여 randomized people data 출력 
+ - 입력 데이터는 원 핫 인코딩 방식으로 받아옴 
+ - 28 X 28 사이즈의 입력 데이터를 사용하여 결과값인 784를 입력값으로 넣어줌
+ - 0~9까지 결과값을 나타내주기 위해 10개의 결과값을 만들어줌 
 
-3. matplotlib() 활용하여 데이터 시각화 
+1. Dropout 0.8 결과 
 
-4. scikit learn , 선형회귀의 사용으로 예측된 사람의 신체 데이터와 각각의 절편과 기울기 출력
+![image](https://user-images.githubusercontent.com/58849278/117122432-e0b9ae00-add0-11eb-9829-af9a4d3b1803.png)
 
-5. 마찬가지로 matplotlib() 사용하여 결과 시각화 
+2. Dropout 1.0 결과 
 
-7. Logistic Regression 으로 예측률 보완 
+![image](https://user-images.githubusercontent.com/58849278/117122846-44dc7200-add1-11eb-8cc5-a1c81b86d0e0.png)
 
-	![image](https://user-images.githubusercontent.com/58849278/117252311-bde6d280-ae80-11eb-8e09-58fd95b6b8f5.png)
+## Conclusion
 
-## Logistic Regression
+ 1. Dropout이 1에 가까울 때, 정확도가 높게 나오는 것을 확인
+ 2. 과적합을 막아주는 기법인 dropout 을 사용하면 시간이 오래 걸린다는 단점이 있지만 이를 보완해주는 배치 정규화 기법을 사용하여 학습 속도를 향상 시킬 수 있었다. 
 
-1. 비행기 탑승 승객 리스트 ID, Survival, Class, Gender, Age 순으로 수치화한 데이터 (.csv) 불러오기 
+## CNN 
 
-2. 생존을 예측하는 분류기 생성 (예측 변수 2개) 
+**설정 환경**
+	
 
-3. 추정 확률과 결정 경계를 시각화하여 출력 
+ - MNIST DATA 
+ - 합성곱 신경망은 입력층, 출력층, Convolutional Layer 2개로 구성 
+ - 컨볼루션 레이어는 각각 2X2 max pooling 적용 
+ - Fully connected layer 2개를 추가 구성하여 각각 28 x 28 = 256 
+ - Dropout 수치는 0.8 고정
+ - 비용함수는 cross-entropy 사용 
+ - 최적화는 Adam optimizer과 RmsProp optimizer 사용하여 비교 
 
-![image](https://user-images.githubusercontent.com/58849278/117253118-d1466d80-ae81-11eb-8757-1a0c970c85c4.png)
+## 결과 분석 
 
+**Adam Optimizer 적용 결과** 
 
- ## Ensemble Learning
+![image](https://user-images.githubusercontent.com/58849278/117125515-90dce600-add4-11eb-84e6-063bfc0581fc.png)
 
-앙상블 학습은 여러 모델이 동일한 문제를 해결하고 더 나은 결과를 얻도록 훈련시키는 기계 학습 모델이다. 
-주된 가설은 약한 모델이 올바르게 결합되면 더 정확하고 견고한 모델을 얻을 수 있다는 것이다. 
-낮은 편향과 낮은 분산은 반대 방향으로 가장 많이 변하지만 편향과 분산은 작업중인 데이터의 근본적인 복잡성을 해결하기에 중요한 기능을 한다. 자유도가 너무 크지 않은 모델을 만들기 위해 우리는 앙상블 학습을 사용하며 배깅, 부스팅, 스태킹 알고리즘을 상황에 맞게 활용해야 한다. 
+**RMS Prop - Optimizer 적용 결과**
+![image](https://user-images.githubusercontent.com/58849278/117125641-c550a200-add4-11eb-9a48-cd86e00c7734.png)
 
- - bagging & pasting
- 무작위로 훈련 데이터 셋을 잘게 나눈 뒤 나누어진 훈련 데이터 셋을 여러 개의 모델에 할당하여 학습시키는 방식 
- (1) Bagging : 중복 허용, 리샘플링 , 복원 추출
- (2) Pasting : 중복 허용하지 않고 훈련 데이터 셋 나눔
- ![image](https://user-images.githubusercontent.com/58849278/117254127-fbe4f600-ae82-11eb-9326-be71db03ba81.png)
- - ada boosting & gradient boosting
- 
-	(1) 에이다 부스트
-	Weak Model 을 순차적으로 적용해나가는 과정에서 잘 분류된 샘플의 가중치는 낮추고 잘못 분류된 가중치를 상대적으로 점점 높여 주면서 샘플 분포를 변화시키는 원리 
+**Conclusion** 
 
-	(2) 그레디언트 부스트 
-Weak Model 을 순차적으로 적용해나가는 과정에서 잘못 분류된 샘플의 error를 optimization하는 원리 
-식별하기 쉬운 데이터 특징에 대응하는 학습기부터 식별하기 어려운 데이터 특징에 대응하는 학습기까지 자동 생성됨 
+![image](https://user-images.githubusercontent.com/58849278/117125805-faf58b00-add4-11eb-9ecb-ae9366172f3b.png)
 
-	 ![image](https://user-images.githubusercontent.com/58849278/117254232-20d96900-ae83-11eb-92f9-419e927ace9f.png)
+1. Adam을 사용했을 때, 1st epoch에서 cost 값이 0.472로 나왔고 Rms prop을 사용했을 때 1.177이 나왔다. 
 
- 
-## Random Forest
+2. RMS prop 최적화가 완료될 때까지 cost는 처음 1.177 이후에 0.118, 0.076, 0.049, ... 0.028 까지 줄어드는 것을 볼 수 있다. 
 
-여러 의사 결정 트리를 생성한 후 다수결 또는 평균에 따라 출력 변수를 예측하는 알고리즘 
-(의사결정트리 + Bagging) 
+3. Adam optimizer 최적화가 완료될 때까지 cost는 처음 0.472, 0.143, 0.101, 0.078, ... 0.022 까지 줄어드는 것을 볼 수 있다. 
 
-![image](https://user-images.githubusercontent.com/58849278/117255239-5e8ac180-ae84-11eb-808a-0d4d48a84c0b.png)
+4. 각 네트워크마다 특성이 다르기 때문에 어떤 최적화 함수가 좋다고 판단할 수 없지만 Adam Optimizer 가 Adagrad와 Rms Prop의 장점을 섞어 놓은 것으로 좋은 성과를 내고 있다. 
 
-**Feature**
-:one: 랜덤포레스트는 부트 스트랩을 이용하여 학습 집하에 다양한 샘플을 추출하며 입력 변수 중 일부의 변수만 사용한다.
+## CNN
 
-:two:  데이터 샘플링 및 변수 선택을 통해 의사 결정 트리의 다양성을 확보한다. 
+![image](https://user-images.githubusercontent.com/58849278/117531130-f4a52000-b01b-11eb-84b3-befc8630d420.png)
 
-:three: 변수의 중요성에 순위를 매기고 결측치에 대해 강건하다. 
-
-:four: 예측의 변동성이 줄어들어 과적합을 방지한다. 
-
-:five: 결측치의 비율이 높아져 높은 정확도를 나타낸다. 
-
-:six: 데이터의 수가 많아지면 의사 결정 트리에 비해 속도가 크게 떨어지고 결과에 대한 해석이 어려울 수 있다. 
-
-
-## Scikit Learn 
-**Iris Flower Data Set**
-
-![image](https://user-images.githubusercontent.com/58849278/117256277-7151c600-ae85-11eb-9547-baf9c9416105.png)
-
-**Advanced Learning** - MNIST 
-
-![image](https://user-images.githubusercontent.com/58849278/117257076-6f3c3700-ae86-11eb-997c-93abedee875b.png)
-
-**결과**
-![image](https://user-images.githubusercontent.com/58849278/117257212-9c88e500-ae86-11eb-9542-034e1b988b50.png)
-
-## SVM (Support Vector Machine) 
-
-![image](https://user-images.githubusercontent.com/58849278/117257960-6ac44e00-ae87-11eb-8922-b60945480b2b.png)
-
-(1) SVC : Support Vector Classifier 범주형 변수
-(2) SVR : Support Vector Regression 연속형 변수
-
-SVM은 적당한 error을 허용하되, margin은 최대화 되도록 
-
-![image](https://user-images.githubusercontent.com/58849278/117258377-df978800-ae87-11eb-8e66-d94ec1f2a6b0.png)
-
-## RMS Prop Optimizer
-
-**rms prop 수식** 
-![image](https://user-images.githubusercontent.com/58849278/117258764-461ca600-ae88-11eb-9cb0-51349c45877a.png)
-
-    optimize= tf.train.RMSPropOptimizer(learning_rate=0.01,decay=0.9,momentum=0.0,epsilon=1e-10).minimize(cost) 
-  
-
+CNN 에서는 AdaGrad 의 성능이 좋지 않고,
+MNIST와 CNN 등 Adam Optimizer 의 성능이 가장 좋은 것을 알 수 있다.
