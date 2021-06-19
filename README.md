@@ -159,3 +159,10 @@
 
 CNN 에서는 AdaGrad 의 성능이 좋지 않고,
 MNIST와 CNN 등 Adam Optimizer 의 성능이 가장 좋은 것을 알 수 있다.
+
+**Convergence and Training Speed**
+	<img src="https://user-images.githubusercontent.com/58849278/122635702-6e065700-d120-11eb-886e-263b32a6518a.png">
+
+**High-Resolution Image Generation Using CELEBA-HQ Datasets**
+
+<img src="https://user-images.githubusercontent.com/58849278/122635832-fe449c00-d120-11eb-91ae-5549a4ac0e30.png">
