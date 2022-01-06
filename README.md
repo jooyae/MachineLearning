@@ -5,7 +5,20 @@
 
 ## SWU AI Deep Learning 
 
-<img width="800" height = "400" src="https://user-images.githubusercontent.com/58849278/117119604-46a43680-adcd-11eb-91cc-d489f17dbef1.png">
+<p align="center"><img src="https://raw.githubusercontent.com/valohai/ml-logos/master/tensorflow-tf.svg" width = 30%/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/valohai/ml-logos/master/tensorflow-text.svg" width = 35%/></p>
+
+[![Python](https://camo.githubusercontent.com/a7b5b417de938c1faf3602c7f48f26fde8761a977be85390fd6c0d191e210ba8/68747470733a2f2f696d672e736869656c64732e696f2f707970692f707976657273696f6e732f74656e736f72666c6f772e7376673f7374796c653d706c6173746963)](https://badge.fury.io/py/tensorflow) 
+
+[![Documentation](https://camo.githubusercontent.com/5fee71a94d467d0fa33c4469ad6e6ef356042a8ca784a0c0eae6a04796b77d38/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6170692d7265666572656e63652d626c75652e737667)](https://www.tensorflow.org/api_docs/)
+
+## Description
+:heavy_check_mark: **Tensorpack** Tensorflow Model Study File 
+
+:heavy_check_mark: **Daily Algorithm** Python3 Algorithm Study File 
+
+:heavy_check_mark: **NPL Algorithm** NPL Study File 
+
 
 
 |Language| Library |
